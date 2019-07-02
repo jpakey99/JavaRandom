@@ -8,11 +8,7 @@ package PegGame;
 
 public class Peg {
 
-    /**
-     * the id number of the next peg
-     */
-    private static int nextId = 0;
-
+    public static Type Type;
     /**
      * the id number of the individual peg
      */
@@ -27,17 +23,16 @@ public class Peg {
     /**
      * the slot can only have 2 types, empty and peg.
      */
-    private enum Type{
+    public enum Type{
         empty,
-        peg
+        peg;
     }
 
     /**
      * Constructor.  Every peg hole starts with a peg.
      */
-    public Peg(){
-        id = nextId;
-        nextId = nextId + 1;
+    public Peg(int id){
+        this.id = id;
         type = Type.peg;
     }
 
@@ -47,15 +42,6 @@ public class Peg {
      */
     public int getId(){
         return id;
-    }
-
-    /**
-     * See if another peg needs to be created
-     * @param total: the number of pegs that need to be created
-     * @return True if another peg needs to be created.  False otherwise
-     */
-    public boolean anotherPeg(int total){
-        return total > id;
     }
 
     /**
